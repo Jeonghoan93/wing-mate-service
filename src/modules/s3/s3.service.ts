@@ -12,6 +12,10 @@ export class S3Service {
       region: process.env.AWS_REGION,
     });
   }
+  async uploadFiles(files: Express.Multer.File[]): Promise<string[]> {
+    const uploadPromises = files.map((file) => this.uploadFile(file));
+    return await Promise.all(uploadPromises);
+  }
 
   async uploadFile(file: Express.Multer.File): Promise<string> {
     const uploadResult = await this.s3

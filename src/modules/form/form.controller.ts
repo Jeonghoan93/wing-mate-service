@@ -1,5 +1,14 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  UploadedFile,
+  UseInterceptors,
+} from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { Form } from 'src/common/schemas/form.schema';
+import { CreateFormDto } from './dto/create-form-dto';
 import { FormService } from './form.service';
 
 @Controller('form')
@@ -7,9 +16,12 @@ export class FormController {
   constructor(private readonly formService: FormService) {}
 
   @Post('submit')
-  async submitForm(@Body() createFormDto: any): Promise<Form> {
-    // Remember to use a DTO here
-    return this.formService.create(createFormDto);
+  @UseInterceptors(FileInterceptor('files'))
+  async submitForm(
+    @Body() createFormDto: CreateFormDto,
+    @UploadedFile() files: Express.Multer.File[],
+  ): Promise<Form> {
+    return this.formService.create(createFormDto, files);
   }
 
   @Get('all')

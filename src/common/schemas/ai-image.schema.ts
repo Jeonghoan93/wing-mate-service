@@ -7,10 +7,10 @@ export class AiImage extends Document {
   userId: string;
 
   @Prop({ required: true })
-  originalImage: string; // URL or path to the original image
+  originalImage: string[]; // URL or path to the original image
 
   @Prop({ required: true })
-  aiGeneratedImage: string; // URL or path to the AI-generated image
+  aiGeneratedImage: string[]; // URL or path to the AI-generated image
 }
 
 export const AiImageSchema = SchemaFactory.createForClass(AiImage);
