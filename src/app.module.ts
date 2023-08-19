@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppConfig } from 'src/common/config/app.config';
+import { AiImageModule } from './modules/ai-image/ai-image.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { FormModule } from './modules/form/form.module';
 import { UserModule } from './modules/user/user.module';
@@ -22,6 +23,7 @@ import { UserModule } from './modules/user/user.module';
     UserModule,
     AuthModule,
     FormModule,
+    AiImageModule,
   ],
 })
 export class AppModule {}
