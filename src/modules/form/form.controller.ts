@@ -11,7 +11,7 @@ import { Form } from 'src/common/schemas/form.schema';
 import { CreateFormDto } from './dto/create-form-dto';
 import { FormService } from './form.service';
 
-@Controller('form')
+@Controller('api/form')
 export class FormController {
   constructor(private readonly formService: FormService) {}
 

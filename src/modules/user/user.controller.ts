@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
-import { UserService } from './user.service';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { User } from 'src/common/schemas/user.schema';
+import { UserService } from './user.service';
 
-@Controller('users')
+@Controller('api/user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 

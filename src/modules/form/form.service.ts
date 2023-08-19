@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Form } from 'src/common/schemas/form.schema';
@@ -26,7 +26,7 @@ export class FormService {
       const formEntry = new this.formModel(createFormDto);
       return formEntry.save();
     } catch (err) {
-      throw new Error('Unable to process the form. Please try again.');
+      throw new InternalServerErrorException('Error processing your request.');
     }
   }
 

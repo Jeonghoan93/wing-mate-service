@@ -7,7 +7,7 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import { S3Service } from './s3.service';
 
-@Controller('upload')
+@Controller('api/upload')
 export class S3Controller {
   constructor(private readonly s3Service: S3Service) {}
 
