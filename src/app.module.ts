@@ -5,6 +5,7 @@ import { AppConfig } from 'src/common/config/app.config';
 import { AiImageModule } from './modules/ai-image/ai-image.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { FormModule } from './modules/form/form.module';
+import { S3Module } from './modules/s3/s3.module';
 import { UserModule } from './modules/user/user.module';
 
 @Module({
@@ -24,6 +25,7 @@ import { UserModule } from './modules/user/user.module';
     AuthModule,
     FormModule,
     AiImageModule,
+    S3Module,
   ],
 })
 export class AppModule {}
