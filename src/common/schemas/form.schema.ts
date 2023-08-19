@@ -1,5 +1,5 @@
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from 'mongoose';
-import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 
 export enum InterestedInEnum {
   MEN = 'men',
@@ -61,7 +61,7 @@ export enum MotivationLevelEnum {
 }
 
 @Schema({ timestamps: true })
-export class UserProfile extends Document {
+export class Form extends Document {
   @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
   userId: string;
 
@@ -105,4 +105,4 @@ export class UserProfile extends Document {
   aiPhotos: string[];
 }
 
-export const UserProfileSchema = SchemaFactory.createForClass(UserProfile);
+export const FormSchema = SchemaFactory.createForClass(Form);
